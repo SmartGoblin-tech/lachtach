@@ -5,796 +5,580 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lách Tách! – Xiên Nướng Việt Nam</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --orange: #E8631A;
-    --brown: #5C2D0A;
-    --amber: #C4500F;
-    --cream: #FDF3E7;
-    --warm-white: #FFF8F0;
-    --text-dark: #2C1208;
-    --gold: #D4831A;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    background: var(--warm-white);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
-
-  /* ── SIDEBAR NAV ───────────────────────────── */
-  .sidebar {
-    position: fixed;
-    left: 0; top: 0;
-    width: 220px; height: 100vh;
-    background: linear-gradient(180deg, var(--brown) 0%, #3A1A06 100%);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 0;
-    box-shadow: 4px 0 20px rgba(0,0,0,0.3);
-  }
-
-  .sidebar-logo {
-    text-align: center;
-    padding: 0 1rem 2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .sidebar-logo span {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--gold);
-    font-style: italic;
-    display: block;
-    line-height: 1.2;
-  }
-
-  .sidebar-logo small {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .sidebar nav {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 0;
-    gap: 0.2rem;
-  }
-
-  .sidebar nav a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: all 0.2s;
-    border-left: 3px solid transparent;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .sidebar nav a:hover,
-  .sidebar nav a.active {
-    color: var(--gold);
-    border-left-color: var(--gold);
-    background: rgba(255,255,255,0.05);
-  }
-
-  .sidebar nav a .nav-icon { font-size: 1rem; }
-
-  /* Language switcher */
-  .lang-switcher {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    justify-content: center;
-  }
-
-  .lang-btn {
-    background: none;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.6);
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-family: inherit;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: all 0.2s;
-  }
-
-  .lang-btn:hover,
-  .lang-btn.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: white;
-  }
-
-  /* ── MAIN CONTENT ───────────────────────────── */
-  .main {
-    margin-left: 220px;
-  }
-
-  /* ── HERO ───────────────────────────────────── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--brown) 0%, var(--amber) 40%, var(--orange) 70%, #F0943A 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 80%, rgba(92,45,10,0.6) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(92,45,10,0.4) 0%, transparent 50%);
-  }
-
-  .hero-bg-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.04;
-    background-image:
-      repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%);
-    background-size: 20px 20px;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.9);
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.5rem 1.5rem;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 1rem;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
-  }
-
-  .hero-motto {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    color: rgba(255,255,255,0.85);
-    font-style: italic;
-    margin-bottom: 2rem;
-    font-family: 'Playfair Display', serif;
-  }
-
-  .hero-desc {
-    max-width: 560px;
-    margin: 0 auto 3rem;
-    color: rgba(255,255,255,0.8);
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,0.5);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-
-  /* ── SECTIONS ───────────────────────────────── */
-  section {
-    padding: 6rem 4rem;
-  }
-
-  .section-label {
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    color: var(--brown);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-divider {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--orange), var(--amber));
-    margin-bottom: 2rem;
-  }
-
-  /* ── STORY SECTION ──────────────────────────── */
-  .story {
-    background: var(--cream);
-  }
-
-  .story-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    max-width: 1000px;
-  }
-
-  .story-text p {
-    color: #6B4226;
-    line-height: 1.9;
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .story-visual {
-    position: relative;
-  }
-
-  .story-card {
-    background: linear-gradient(135deg, var(--brown), var(--amber));
-    border-radius: 4px;
-    padding: 3rem 2rem;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .story-card::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .story-card .big-emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
-  .story-card p { font-size: 0.95rem; opacity: 0.85; line-height: 1.7; font-style: italic; }
-
-  /* ── MENU SECTIONS ──────────────────────────── */
-  .menu-section {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .menu-section.skewers { background: var(--warm-white); }
-  .menu-section.rice { background: #FEF6E8; }
-  .menu-section.sauce { background: linear-gradient(135deg, #FFF0E0, #FFE4C4); }
-
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .menu-card {
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 20px rgba(92,45,10,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  .menu-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
-  }
-
-  .menu-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(92,45,10,0.15);
-  }
-
-  .menu-card-img {
-    height: 160px;
-    background: linear-gradient(135deg, var(--amber) 0%, var(--orange) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
-  }
-
-  .menu-card-body {
-    padding: 1.2rem;
-  }
-
-  .menu-card-body h3 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--brown);
-    margin-bottom: 0.4rem;
-  }
-
-  .menu-card-body p {
-    font-size: 0.8rem;
-    color: #8B6050;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-  }
-
-  .menu-card-price {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--orange);
-  }
-
-  /* Floating element for scroll effect */
-  .float-element {
-    position: absolute;
-    opacity: 0.06;
-    font-size: 15rem;
-    pointer-events: none;
-    user-select: none;
-    transition: transform 0.1s;
-  }
-
-  .float-element.right { right: -3rem; top: 50%; transform: translateY(-50%); }
-  .float-element.left { left: -3rem; top: 50%; transform: translateY(-50%); }
-
-  /* ── ORDER SECTION ──────────────────────────── */
-  .order {
-    background: linear-gradient(135deg, var(--brown) 0%, #3A1A06 100%);
-    text-align: center;
-    color: white;
-  }
-
-  .order .section-title { color: var(--gold); }
-  .order .section-label { color: rgba(255,255,255,0.5); }
-
-  .order-desc {
-    max-width: 500px;
-    margin: 0 auto 3rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.8;
-  }
-
-  .order-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .order-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    font-family: inherit;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-
-  .order-btn.grab {
-    background: #00B14F;
-    color: white;
-  }
-
-  .order-btn.grab:hover {
-    background: #009940;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,177,79,0.4);
-  }
-
-  .order-btn.zalo {
-    background: #0068FF;
-    color: white;
-  }
-
-  .order-btn.zalo:hover {
-    background: #0050CC;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,104,255,0.4);
-  }
-
-  .order-btn svg { flex-shrink: 0; }
-
-  /* ── FOOTER ─────────────────────────────────── */
-  footer {
-    background: #1A0A03;
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8rem;
-  }
-
-  footer span { color: var(--gold); }
-
-  /* ── SCROLL ANIMATIONS ──────────────────────── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* ── MOBILE ──────────────────────────────────── */
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding: 1rem;
-    }
-    .sidebar nav { flex-direction: row; flex-wrap: wrap; }
-    .main { margin-left: 0; }
-    section { padding: 4rem 1.5rem; }
-    .story-grid { grid-template-columns: 1fr; gap: 2rem; }
-  }
+:root {
+  --orange: #E8631A;
+  --brown: #5C2D0A;
+  --amber: #C4500F;
+  --cream: #FDF3E7;
+  --warm: #FFF8F0;
+  --dark: #2C1208;
+  --gold: #D4831A;
+  --deep: #3A1A06;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Be Vietnam Pro',sans-serif; background:var(--warm); color:var(--dark); overflow-x:hidden; }
+
+/* ── TOPBAR ──────────────────────────── */
+.topbar {
+  position:fixed; top:0; left:0; right:0;
+  height:60px; z-index:1000;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(58,26,6,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,131,26,0.2);
+}
+
+.topbar-name {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; color:var(--gold);
+  font-weight:700; letter-spacing:1px;
+}
+
+/* Hamburger */
+.hamburger {
+  position:absolute; left:1.2rem; top:50%; transform:translateY(-50%);
+  width:28px; height:20px; cursor:pointer; z-index:1001;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.hamburger span {
+  display:block; height:2.5px; width:100%;
+  background:var(--gold); border-radius:2px;
+  transition:all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(6px,6px); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(6px,-6px); }
+
+/* Language toggle in topbar */
+.topbar-lang {
+  position:absolute; right:1.2rem; top:50%; transform:translateY(-50%);
+  display:flex; gap:0.4rem;
+}
+.topbar-lang button {
+  background:none; border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.5); padding:0.3rem 0.6rem;
+  border-radius:3px; cursor:pointer; font-size:0.7rem;
+  font-family:inherit; font-weight:600; transition:all 0.2s;
+}
+.topbar-lang button.active {
+  background:var(--gold); border-color:var(--gold); color:#fff;
+}
+
+/* ── SLIDE-OUT MENU ──────────────────── */
+.slide-menu {
+  position:fixed; top:60px; left:-300px;
+  width:280px; height:calc(100vh - 60px);
+  background:linear-gradient(180deg,var(--brown),var(--deep));
+  z-index:999; transition:left 0.35s cubic-bezier(0.4,0,0.2,1);
+  padding:2rem 0; overflow-y:auto;
+  box-shadow:4px 0 30px rgba(0,0,0,0);
+}
+.slide-menu.open { left:0; box-shadow:4px 0 30px rgba(0,0,0,0.5); }
+
+.slide-menu a {
+  display:flex; align-items:center; gap:0.7rem;
+  color:rgba(255,255,255,0.7); text-decoration:none;
+  padding:0.9rem 1.8rem; font-size:0.85rem;
+  font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+  border-left:3px solid transparent; transition:all 0.2s;
+}
+.slide-menu a:hover,.slide-menu a.active {
+  color:var(--gold); border-left-color:var(--gold);
+  background:rgba(255,255,255,0.05);
+}
+.slide-menu a .mi { font-size:1.1rem; }
+
+.menu-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.5);
+  z-index:998; opacity:0; pointer-events:none; transition:opacity 0.3s;
+}
+.menu-overlay.show { opacity:1; pointer-events:auto; }
+
+/* ── HERO ────────────────────────────── */
+.hero {
+  min-height:100vh; padding-top:60px;
+  background:linear-gradient(135deg,var(--brown) 0%,var(--amber) 40%,var(--orange) 70%,#F0943A 100%);
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 20% 80%,rgba(92,45,10,0.6) 0%,transparent 60%),
+  radial-gradient(ellipse at 80% 20%,rgba(92,45,10,0.4) 0%,transparent 50%);
+}
+.hero-pattern {
+  position:absolute; inset:0; opacity:0.03;
+  background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);
+  background-size:20px 20px;
+}
+.hero-content { position:relative; z-index:1; padding:2rem; max-width:700px; }
+.hero-badge {
+  display:inline-block; background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85);
+  font-size:0.7rem; letter-spacing:3px; text-transform:uppercase;
+  padding:0.5rem 1.5rem; border-radius:2px; margin-bottom:1.5rem;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,9vw,8rem); color:#fff; line-height:0.95;
+  margin-bottom:1rem; text-shadow:0 4px 40px rgba(0,0,0,0.3);
+}
+.hero-motto {
+  font-size:clamp(1.05rem,2vw,1.5rem); color:rgba(255,255,255,0.9);
+  font-style:italic; margin-bottom:2.5rem;
+  font-family:'Playfair Display',serif; font-weight:500;
+}
+.hero-intro {
+  max-width:520px; margin:0 auto; color:rgba(255,255,255,0.78);
+  font-size:0.95rem; line-height:1.85;
+}
+.hero-scroll {
+  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,0.4); font-size:0.7rem; letter-spacing:3px;
+  text-transform:uppercase; animation:bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(10px)}
+}
+
+/* ── SECTIONS ────────────────────────── */
+section { padding:5rem 2rem; }
+@media(min-width:768px) { section{padding:6rem 4rem;} }
+
+.section-label {
+  font-size:0.72rem; letter-spacing:4px; text-transform:uppercase;
+  color:var(--orange); font-weight:700; margin-bottom:0.6rem;
+}
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,3rem); color:var(--brown);
+  line-height:1.15; margin-bottom:1.2rem;
+}
+.section-bar { width:50px; height:3px; background:linear-gradient(90deg,var(--orange),var(--amber)); margin-bottom:2rem; }
+.section-desc { color:#8B6050; max-width:580px; line-height:1.85; font-size:0.95rem; margin-bottom:2.5rem; }
+
+/* ── STORY ───────────────────────────── */
+.story { background:var(--cream); }
+.story-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; max-width:1000px; }
+.story-card {
+  background:linear-gradient(135deg,var(--brown),var(--amber));
+  border-radius:6px; padding:2.5rem 2rem; text-align:center;
+  color:#fff; position:relative; overflow:hidden;
+}
+.story-card::after {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:140px; height:140px; border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.story-card .big { font-size:3.5rem; display:block; margin-bottom:0.8rem; }
+.story-card p { font-size:0.9rem; opacity:0.85; line-height:1.7; font-style:italic; }
+
+/* ── MENU ────────────────────────────── */
+.menu-sec { position:relative; overflow:hidden; }
+.menu-sec.alt { background:var(--cream); }
+.menu-sec.alt2 { background:linear-gradient(135deg,#FFF0E0,#FFE8CC); }
+.menu-sec.alt3 { background:#FEF6E8; }
+
+.menu-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem; margin-top:1rem;
+}
+
+.menu-card {
+  background:#fff; border-radius:6px; overflow:hidden;
+  box-shadow:0 2px 15px rgba(92,45,10,0.06);
+  transition:transform 0.3s,box-shadow 0.3s;
+  opacity:0; transform:translateY(25px);
+}
+.menu-card.visible { opacity:1; transform:translateY(0); transition:opacity 0.5s,transform 0.5s,box-shadow 0.3s; }
+.menu-card:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(92,45,10,0.12); }
+
+.menu-card-img {
+  height:180px; background-size:cover; background-position:center;
+  position:relative;
+}
+.menu-card-img .tag {
+  position:absolute; top:0.8rem; left:0.8rem;
+  background:var(--orange); color:#fff; font-size:0.65rem;
+  font-weight:700; padding:0.25rem 0.6rem; border-radius:2px;
+  letter-spacing:1px; text-transform:uppercase;
+}
+
+.menu-card-body { padding:1.2rem 1.3rem; }
+.menu-card-body h3 { font-size:1rem; font-weight:700; color:var(--brown); margin-bottom:0.35rem; }
+.menu-card-body p { font-size:0.82rem; color:#9B7060; line-height:1.6; margin-bottom:0.7rem; }
+.menu-card-price { font-size:1.05rem; font-weight:800; color:var(--orange); }
+
+/* Floating parallax icons */
+.float-icon {
+  position:absolute; opacity:0.05; font-size:12rem;
+  pointer-events:none; user-select:none;
+}
+.float-icon.r { right:-2rem; top:40%; }
+.float-icon.l { left:-2rem; top:30%; }
+
+/* ── COMBOS ──────────────────────────── */
+.combo-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1rem; margin-top:1rem;
+}
+.combo-card {
+  background:#fff; border-radius:6px; padding:1.3rem;
+  box-shadow:0 2px 12px rgba(92,45,10,0.06);
+  text-align:center; border:1px solid rgba(232,99,26,0.1);
+  opacity:0; transform:translateY(20px);
+  transition:opacity 0.5s,transform 0.5s;
+}
+.combo-card.visible { opacity:1; transform:translateY(0); }
+.combo-card .combo-icon { font-size:2rem; margin-bottom:0.5rem; }
+.combo-card h3 { font-size:0.9rem; font-weight:700; color:var(--brown); margin-bottom:0.3rem; }
+.combo-card p { font-size:0.78rem; color:#9B7060; margin-bottom:0.5rem; }
+.combo-card .combo-price { font-size:1.1rem; font-weight:800; color:var(--orange); }
+
+/* ── ORDER ───────────────────────────── */
+.order {
+  background:linear-gradient(135deg,var(--brown),var(--deep));
+  text-align:center; color:#fff;
+}
+.order .section-title { color:var(--gold); }
+.order .section-label { color:rgba(255,255,255,0.4); }
+.order-desc { max-width:480px; margin:0 auto 2.5rem; color:rgba(255,255,255,0.7); line-height:1.8; font-size:0.95rem; }
+
+.order-buttons { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
+.order-btn {
+  display:inline-flex; align-items:center; gap:0.7rem;
+  padding:0.9rem 1.8rem; border-radius:4px; text-decoration:none;
+  font-weight:700; font-size:0.9rem; font-family:inherit;
+  transition:all 0.25s; border:none; cursor:pointer;
+}
+.order-btn.grab { background:#00B14F; color:#fff; }
+.order-btn.grab:hover { background:#009940; transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,177,79,0.35); }
+.order-btn.zalo { background:#0068FF; color:#fff; }
+.order-btn.zalo:hover { background:#0050CC; transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,104,255,0.35); }
+.order-btn svg { flex-shrink:0; }
+
+/* ── FOOTER ──────────────────────────── */
+footer {
+  background:#1A0A03; color:rgba(255,255,255,0.35);
+  text-align:center; padding:1.8rem; font-size:0.78rem;
+}
+footer span { color:var(--gold); }
+
+/* ── ANIMATIONS ──────────────────────── */
+.reveal { opacity:0; transform:translateY(25px); transition:opacity 0.6s,transform 0.6s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── MOBILE ──────────────────────────── */
+@media(max-width:768px) {
+  .story-grid { grid-template-columns:1fr; gap:2rem; }
+  .menu-grid { grid-template-columns:1fr; }
+  .combo-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:480px) {
+  .combo-grid { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="sidebar-logo">
-    <span>Lách Tách!</span>
-    <small data-vi="Xiên Nướng Việt Nam" data-en="Vietnamese Skewers">Xiên Nướng Việt Nam</small>
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
   </div>
-  <nav>
-    <a href="#hero" class="nav-icon-link"><span class="nav-icon">🏠</span> <span data-vi="Trang Chủ" data-en="Home">Trang Chủ</span></a>
-    <a href="#story"><span class="nav-icon">📖</span> <span data-vi="Câu Chuyện" data-en="Our Story">Câu Chuyện</span></a>
-    <a href="#skewers"><span class="nav-icon">🍢</span> <span data-vi="Xiên Nướng" data-en="Skewers">Xiên Nướng</span></a>
-    <a href="#rice"><span class="nav-icon">🍚</span> <span data-vi="Xôi Thái" data-en="Sticky Rice">Xôi Thái</span></a>
-    <a href="#sauce"><span class="nav-icon">🌶️</span> <span data-vi="Sốt & Gia Vị" data-en="Sauce & Sides">Sốt & Gia Vị</span></a>
-    <a href="#order"><span class="nav-icon">📦</span> <span data-vi="Đặt Hàng" data-en="Order Now">Đặt Hàng</span></a>
-  </nav>
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('vi')">🇻🇳 VI</button>
-    <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+  <div class="topbar-name">Lách Tách!</div>
+  <div class="topbar-lang">
+    <button class="active" onclick="setLang('vi')">🇻🇳 VI</button>
+    <button onclick="setLang('en')">🇬🇧 EN</button>
   </div>
-</aside>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="overlay" onclick="toggleMenu()"></div>
+<nav class="slide-menu" id="slideMenu">
+  <a href="#hero" onclick="toggleMenu()"><span class="mi">🏠</span> <span data-vi="Trang Chủ" data-en="Home">Trang Chủ</span></a>
+  <a href="#story" onclick="toggleMenu()"><span class="mi">📖</span> <span data-vi="Câu Chuyện" data-en="Our Story">Câu Chuyện</span></a>
+  <a href="#skewers" onclick="toggleMenu()"><span class="mi">🍢</span> <span data-vi="Xiên Nướng" data-en="Skewers">Xiên Nướng</span></a>
+  <a href="#combos" onclick="toggleMenu()"><span class="mi">🎉</span> <span data-vi="Combo" data-en="Combos">Combo</span></a>
+  <a href="#banhmi" onclick="toggleMenu()"><span class="mi">🥖</span> <span data-vi="Bánh Mì" data-en="Bánh Mì">Bánh Mì</span></a>
+  <a href="#hue" onclick="toggleMenu()"><span class="mi">🥟</span> <span data-vi="Bánh Bột Lọc" data-en="Huế Dumplings">Bánh Bột Lọc</span></a>
+  <a href="#sides" onclick="toggleMenu()"><span class="mi">🍚</span> <span data-vi="Đồ Ăn Kèm" data-en="Sides">Đồ Ăn Kèm</span></a>
+  <a href="#order" onclick="toggleMenu()"><span class="mi">📦</span> <span data-vi="Đặt Hàng" data-en="Order">Đặt Hàng</span></a>
+</nav>
 
 <!-- MAIN -->
-<main class="main">
+<main>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="hero-bg-pattern"></div>
-    <div class="hero-content">
-      <div class="hero-badge" data-vi="🇻🇳 Hà Nội, Việt Nam" data-en="🇻🇳 Hanoi, Vietnam">🇻🇳 Hà Nội, Việt Nam</div>
-      <h1>Lách Tách!</h1>
-      <p class="hero-motto" data-vi='"Đơn giản nhất — ngon nhất."' data-en='"The simpler, the better."'>"Đơn giản nhất — ngon nhất."</p>
-      <p class="hero-desc" data-vi="Xiên nướng đường phố Việt Nam cháy xèo xèo, phục vụ cùng xôi Hom Mali Thái thơm dẻo. Từng que xiên đều là một lời hứa: nguyên liệu tươi, hương vị thật." data-en="Sizzling Vietnamese street skewers served with fragrant Thai Hom Mali sticky rice. Every skewer is a promise — fresh ingredients, honest flavour.">
-        Xiên nướng đường phố Việt Nam cháy xèo xèo, phục vụ cùng xôi Hom Mali Thái thơm dẻo. Từng que xiên đều là một lời hứa: nguyên liệu tươi, hương vị thật.
-      </p>
-    </div>
-    <div class="hero-scroll">↓ Khám Phá</div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story" class="story">
-    <div class="story-grid">
-      <div class="story-text reveal">
-        <p class="section-label" data-vi="Về Chúng Tôi" data-en="About Us">Về Chúng Tôi</p>
-        <h2 class="section-title" data-vi="Câu chuyện của<br>Lách Tách!" data-en="The Story of<br>Lách Tách!">Câu chuyện của<br>Lách Tách!</h2>
-        <div class="section-divider"></div>
-        <p data-vi="Chúng tôi tin rằng những món ăn ngon nhất không cần phải phức tạp. Lách Tách! ra đời từ tình yêu với ẩm thực vỉa hè Việt Nam — nơi những que xiên bốc khói, tiếng xèo xèo trên bếp than, và mùi thơm quyến rũ khiến ai đi qua cũng phải dừng chân." data-en="We believe the finest food needs no complication. Lách Tách! was born from a love of Vietnamese street cooking — smoky skewers over charcoal, the satisfying sizzle, aromas that stop you in your tracks.">
-          Chúng tôi tin rằng những món ăn ngon nhất không cần phải phức tạp. Lách Tách! ra đời từ tình yêu với ẩm thực vỉa hè Việt Nam — nơi những que xiên bốc khói, tiếng xèo xèo trên bếp than, và mùi thơm quyến rũ khiến ai đi qua cũng phải dừng chân.
-        </p>
-        <p data-vi="Thịt tươi mỗi ngày. Xôi Hom Mali Thái nấu mới từng mẻ. Sốt ớt Việt Nam pha chế theo công thức gia truyền. Đây là những điều chúng tôi không bao giờ thỏa hiệp." data-en="Fresh meat daily. Thai Hom Mali sticky rice cooked in every batch. Vietnamese chilli sauce made to a house recipe. These are the things we never compromise on.">
-          Thịt tươi mỗi ngày. Xôi Hom Mali Thái nấu mới từng mẻ. Sốt ớt Việt Nam pha chế theo công thức gia truyền. Đây là những điều chúng tôi không bao giờ thỏa hiệp.
-        </p>
-        <p data-vi="Xuất phát từ những con hẻm Hà Nội, chúng tôi mang đến bàn ăn của bạn hương vị chân thực nhất của Việt Nam — đơn giản, tươi ngon, và luôn đáng nhớ." data-en="From the alleys of Hanoi to your doorstep, we bring you the most authentic flavours Vietnam has to offer — simple, fresh, and always memorable.">
-          Xuất phát từ những con hẻm Hà Nội, chúng tôi mang đến bàn ăn của bạn hương vị chân thực nhất của Việt Nam — đơn giản, tươi ngon, và luôn đáng nhớ.
-        </p>
-      </div>
-      <div class="story-visual reveal reveal-delay-2">
-        <div class="story-card">
-          <span class="big-emoji">🔥</span>
-          <p data-vi='"Mỗi que xiên là một tác phẩm nhỏ. Thịt tươi, lửa than thật, sốt ớt Việt đậm đà — kết hợp hoàn hảo với xôi Hom Mali dẻo thơm."' data-en='"Each skewer is a small masterpiece. Fresh meat, real charcoal, bold Vietnamese chilli sauce — perfectly paired with fragrant Hom Mali sticky rice."'>
-            "Mỗi que xiên là một tác phẩm nhỏ. Thịt tươi, lửa than thật, sốt ớt Việt đậm đà — kết hợp hoàn hảo với xôi Hom Mali dẻo thơm."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKEWERS MENU -->
-  <section id="skewers" class="menu-section skewers">
-    <span class="float-element right">🍢</span>
-    <div class="reveal">
-      <p class="section-label" data-vi="Thực Đơn" data-en="Menu">Thực Đơn</p>
-      <h2 class="section-title" data-vi="Xiên Nướng 🍢" data-en="Grilled Skewers 🍢">Xiên Nướng 🍢</h2>
-      <div class="section-divider"></div>
-      <p style="color:#8B6050; max-width:600px; line-height:1.8;" data-vi="Thịt tươi chọn lọc mỗi ngày, tẩm ướp gia vị đặc trưng, nướng trên bếp than hoa cho đến khi vàng giòn hoàn hảo. Nguồn gốc từ ẩm thực đường phố Hà Nội và Hội An — nơi xiên nướng là linh hồn của những buổi chiều tà." data-en="Hand-selected fresh meat marinated daily in signature spices, grilled over charcoal to golden perfection. Rooted in the street-food culture of Hanoi and Hoi An — where skewers are the soul of the afternoon.">
-        Thịt tươi chọn lọc mỗi ngày, tẩm ướp gia vị đặc trưng, nướng trên bếp than hoa cho đến khi vàng giòn hoàn hảo. Nguồn gốc từ ẩm thực đường phố Hà Nội và Hội An — nơi xiên nướng là linh hồn của những buổi chiều tà.
-      </p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-card-img">🥩</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Thịt Bò" data-en="Beef Skewer">Xiên Thịt Bò</h3>
-          <p data-vi="Thịt bò tươi tẩm sả ớt, nướng than giòn ngoài mềm trong." data-en="Fresh beef marinated in lemongrass and chilli, charcoal-grilled crispy outside, tender inside.">Thịt bò tươi tẩm sả ớt, nướng than giòn ngoài mềm trong.</p>
-          <span class="menu-card-price">12.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🐷</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Thịt Heo" data-en="Pork Skewer">Xiên Thịt Heo</h3>
-          <p data-vi="Heo ba chỉ tẩm mật ong ngũ vị hương, nướng vàng thơm béo ngậy." data-en="Pork belly marinated in honey and five-spice, grilled golden and richly fragrant.">Heo ba chỉ tẩm mật ong ngũ vị hương, nướng vàng thơm béo ngậy.</p>
-          <span class="menu-card-price">10.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🍗</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Gà" data-en="Chicken Skewer">Xiên Gà</h3>
-          <p data-vi="Đùi gà tươi tẩm gia vị nướng mềm, thơm lừng đặc trưng." data-en="Fresh chicken thigh skewers seasoned and grilled to tender, aromatic perfection.">Đùi gà tươi tẩm gia vị nướng mềm, thơm lừng đặc trưng.</p>
-          <span class="menu-card-price">10.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🦑</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Mực" data-en="Squid Skewer">Xiên Mực</h3>
-          <p data-vi="Mực tươi nướng sa tế, dai giòn thơm cay nồng." data-en="Fresh squid grilled with sa tế sauce — chewy, smoky and boldly spiced.">Mực tươi nướng sa tế, dai giòn thơm cay nồng.</p>
-          <span class="menu-card-price">15.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🍄</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Nấm" data-en="Mushroom Skewer">Xiên Nấm</h3>
-          <p data-vi="Nấm hương nướng bơ tỏi — lựa chọn thanh đạm tuyệt vời." data-en="Shiitake mushrooms grilled in garlic butter — a wonderful lighter choice.">Nấm hương nướng bơ tỏi — lựa chọn thanh đạm tuyệt vời.</p>
-          <span class="menu-card-price">8.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🌽</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xiên Bắp Non" data-en="Baby Corn Skewer">Xiên Bắp Non</h3>
-          <p data-vi="Bắp non nướng bơ mặn, ngọt tự nhiên giòn thanh tươi mát." data-en="Baby corn grilled in salted butter — naturally sweet, crisp and refreshing.">Bắp non nướng bơ mặn, ngọt tự nhiên giòn thanh tươi mát.</p>
-          <span class="menu-card-price">7.000 ₫</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STICKY RICE MENU -->
-  <section id="rice" class="menu-section rice">
-    <span class="float-element left">🍚</span>
-    <div class="reveal">
-      <p class="section-label" data-vi="Đặc Sản" data-en="Specialty">Đặc Sản</p>
-      <h2 class="section-title" data-vi="Xôi Hom Mali Thái 🍚" data-en="Thai Hom Mali Sticky Rice 🍚">Xôi Hom Mali Thái 🍚</h2>
-      <div class="section-divider"></div>
-      <p style="color:#8B6050; max-width:600px; line-height:1.8;" data-vi="Xôi Hom Mali — giống gạo nếp quý từ Thái Lan, nấu từng mẻ nhỏ để giữ độ dẻo thơm tự nhiên. Khi ăn cùng xiên nướng, hương thơm hoa nhài thoảng nhẹ tạo nên một sự kết hợp không thể nào quên." data-en="Hom Mali — Thailand's prized jasmine glutinous rice, cooked in small batches to preserve its natural fragrance and perfect chew. Paired with grilled skewers, its gentle floral aroma creates a pairing you won't forget.">
-        Xôi Hom Mali — giống gạo nếp quý từ Thái Lan, nấu từng mẻ nhỏ để giữ độ dẻo thơm tự nhiên. Khi ăn cùng xiên nướng, hương thơm hoa nhài thoảng nhẹ tạo nên một sự kết hợp không thể nào quên.
-      </p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-card-img">🍚</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xôi Trắng Hom Mali" data-en="Plain Hom Mali Sticky Rice">Xôi Trắng Hom Mali</h3>
-          <p data-vi="Xôi nếp Thái nguyên chất, dẻo thơm — bạn đồng hành hoàn hảo của xiên nướng." data-en="Pure Thai glutinous rice, sticky and fragrant — the perfect companion to grilled skewers.">Xôi nếp Thái nguyên chất, dẻo thơm — bạn đồng hành hoàn hảo của xiên nướng.</p>
-          <span class="menu-card-price">15.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🌰</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xôi Lạc Muối Vừng" data-en="Peanut & Sesame Sticky Rice">Xôi Lạc Muối Vừng</h3>
-          <p data-vi="Xôi phủ lạc rang giòn và vừng rang thơm — hương vị Hà Nội đích thực." data-en="Sticky rice topped with crunchy roasted peanuts and toasted sesame — an authentic Hanoi taste.">Xôi phủ lạc rang giòn và vừng rang thơm — hương vị Hà Nội đích thực.</p>
-          <span class="menu-card-price">20.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🫘</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Xôi Đậu Xanh" data-en="Mung Bean Sticky Rice">Xôi Đậu Xanh</h3>
-          <p data-vi="Xôi nếp phủ đậu xanh bùi béo xay mịn — món truyền thống Việt Nam." data-en="Sticky rice topped with smooth mung bean paste — a beloved Vietnamese classic.">Xôi nếp phủ đậu xanh bùi béo xay mịn — món truyền thống Việt Nam.</p>
-          <span class="menu-card-price">20.000 ₫</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SAUCE SECTION -->
-  <section id="sauce" class="menu-section sauce">
-    <span class="float-element right">🌶️</span>
-    <div class="reveal">
-      <p class="section-label" data-vi="Đặc Trưng" data-en="Signature">Đặc Trưng</p>
-      <h2 class="section-title" data-vi="Sốt & Gia Vị 🌶️" data-en="Sauce & Condiments 🌶️">Sốt & Gia Vị 🌶️</h2>
-      <div class="section-divider"></div>
-      <p style="color:#8B6050; max-width:600px; line-height:1.8;" data-vi="Không có xiên nướng nào hoàn chỉnh nếu thiếu sốt ớt Việt Nam. Pha chế từ ớt tươi, tỏi, giấm và đường theo tỷ lệ bí quyết — đây là thứ đã làm nên thương hiệu Lách Tách!" data-en="No Vietnamese skewer is complete without Vietnamese chilli sauce. Made from fresh chillies, garlic, vinegar and palm sugar in a secret ratio — this is what made Lách Tách! a name worth knowing.">
-        Không có xiên nướng nào hoàn chỉnh nếu thiếu sốt ớt Việt Nam. Pha chế từ ớt tươi, tỏi, giấm và đường theo tỷ lệ bí quyết — đây là thứ đã làm nên thương hiệu Lách Tách!
-      </p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-card-img">🌶️</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Sốt Ớt Việt Nam" data-en="Vietnamese Chilli Sauce">Sốt Ớt Việt Nam</h3>
-          <p data-vi="Công thức gia truyền. Cay đậm đà, chua dịu, ngọt hậu — không thể thiếu khi thưởng thức xiên nướng." data-en="A house recipe. Bold heat, gentle acidity, sweet finish — inseparable from the skewer experience.">Công thức gia truyền. Cay đậm đà, chua dịu, ngọt hậu — không thể thiếu khi thưởng thức xiên nướng.</p>
-          <span class="menu-card-price">Miễn phí / Free</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🧄</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Sốt Mỡ Hành" data-en="Scallion Oil">Sốt Mỡ Hành</h3>
-          <p data-vi="Mỡ hành thơm lừng chan lên xôi hoặc thịt nướng — thêm chiều sâu hương vị." data-en="Fragrant scallion oil drizzled over sticky rice or grilled meat — adding layers of flavour.">Mỡ hành thơm lừng chan lên xôi hoặc thịt nướng — thêm chiều sâu hương vị.</p>
-          <span class="menu-card-price">5.000 ₫</span>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-img">🤎</div>
-        <div class="menu-card-body">
-          <h3 data-vi="Sốt Sa Tế" data-en="Sa Tế Sauce">Sốt Sa Tế</h3>
-          <p data-vi="Tương sa tế đặc sệt từ ớt khô, sả và tôm khô — cho ai thích đậm đà hơn." data-en="Thick sa tế paste from dried chillies, lemongrass and dried shrimp — for those who like it bolder.">Tương sa tế đặc sệt từ ớt khô, sả và tôm khô — cho ai thích đậm đà hơn.</p>
-          <span class="menu-card-price">5.000 ₫</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ORDER SECTION -->
-  <section id="order" class="order">
-    <div class="reveal">
-      <p class="section-label" data-vi="Đặt Hàng Ngay" data-en="Order Now">Đặt Hàng Ngay</p>
-      <h2 class="section-title" data-vi="Đói rồi? Chúng tôi đây." data-en="Hungry? We're ready.">Đói rồi? Chúng tôi đây.</h2>
-      <div class="section-divider" style="margin: 0 auto 2rem;"></div>
-      <p class="order-desc" data-vi="Đặt hàng qua GrabFood để nhận ngay tại cửa bạn, hoặc liên hệ trực tiếp qua Zalo để được tư vấn và đặt combo theo nhu cầu." data-en="Order via GrabFood for delivery to your door, or contact us directly on Zalo for custom orders and group combos.">
-        Đặt hàng qua GrabFood để nhận ngay tại cửa bạn, hoặc liên hệ trực tiếp qua Zalo để được tư vấn và đặt combo theo nhu cầu.
-      </p>
-      <div class="order-buttons">
-        <!-- GRABFOOD -->
-        <a href="https://r.grab.com/o/bYjiyi2e" target="_blank" class="order-btn grab">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-          </svg>
-          <span data-vi="Đặt trên GrabFood" data-en="Order on GrabFood">Đặt trên GrabFood</span>
-        </a>
-        <!-- ZALO -->
-        <a href="https://zalo.me/0868973581" target="_blank" class="order-btn zalo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-          </svg>
-          <span data-vi="Zalo: 0868 973 581" data-en="Zalo: 0868 973 581">Zalo: 0868 973 581</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p data-vi="© 2026 Lách Tách! — Xiên nướng Việt Nam. Được làm với ❤️ và 🔥 tại Hà Nội." data-en="© 2026 Lách Tách! — Vietnamese Skewers. Made with ❤️ and 🔥 in Hanoi.">
-      © 2026 <span>Lách Tách!</span> — Xiên nướng Việt Nam. Được làm với ❤️ và 🔥 tại Hà Nội.
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge" data-vi="🇻🇳 Hà Nội, Việt Nam" data-en="🇻🇳 Hanoi, Vietnam">🇻🇳 Hà Nội, Việt Nam</div>
+    <h1>Lách Tách!</h1>
+    <p class="hero-motto" data-vi='"Đơn giản nhất — ngon nhất."' data-en='"The simpler, the better."'>"Đơn giản nhất — ngon nhất."</p>
+    <p class="hero-intro" data-vi="Xiên nướng than hoa thơm lừng, xôi Hom Mali Thái dẻo thơm, sốt ớt Việt Nam đậm đà — tất cả bắt đầu từ nguyên liệu tươi mỗi ngày. Chúng tôi tin rằng món ăn ngon không cần cầu kỳ, chỉ cần thật lòng." data-en="Charcoal-grilled skewers, fragrant Thai Hom Mali sticky rice, bold Vietnamese chilli sauce — it all starts with fresh ingredients every day. We believe great food needs no complication, only honesty.">
+      Xiên nướng than hoa thơm lừng, xôi Hom Mali Thái dẻo thơm, sốt ớt Việt Nam đậm đà — tất cả bắt đầu từ nguyên liệu tươi mỗi ngày. Chúng tôi tin rằng món ăn ngon không cần cầu kỳ, chỉ cần thật lòng.
     </p>
-  </footer>
+  </div>
+  <div class="hero-scroll">↓</div>
+</section>
+
+<!-- STORY -->
+<section id="story" class="story">
+  <div class="story-grid">
+    <div class="reveal">
+      <p class="section-label" data-vi="Về Chúng Tôi" data-en="About Us">Về Chúng Tôi</p>
+      <h2 class="section-title" data-vi="Câu chuyện Lách Tách!" data-en="The Lách Tách! Story">Câu chuyện Lách Tách!</h2>
+      <div class="section-bar"></div>
+      <p class="section-desc" data-vi="Lách Tách! ra đời từ những con hẻm Hà Nội, nơi tiếng than hoa lách tách hoà với mùi thịt nướng thơm lừng. Chúng tôi chọn thịt heo tươi mỗi sáng, nướng trên bếp than thật, phục vụ cùng xôi Hom Mali Thái — giống gạo nếp quý được nấu từng mẻ nhỏ để giữ trọn hương thơm hoa nhài tự nhiên." data-en="Lách Tách! was born in the alleyways of Hanoi, where the crackling of charcoal meets the aroma of grilled meat. We select fresh pork every morning, grill over real charcoal, and serve with Thai Hom Mali sticky rice — a prized jasmine glutinous rice cooked in small batches to preserve its natural fragrance.">
+        Lách Tách! ra đời từ những con hẻm Hà Nội, nơi tiếng than hoa lách tách hoà với mùi thịt nướng thơm lừng. Chúng tôi chọn thịt heo tươi mỗi sáng, nướng trên bếp than thật, phục vụ cùng xôi Hom Mali Thái — giống gạo nếp quý được nấu từng mẻ nhỏ để giữ trọn hương thơm hoa nhài tự nhiên.
+      </p>
+      <p class="section-desc" data-vi="Sốt ớt Việt Nam là linh hồn của mỗi que xiên. Pha chế từ ớt tươi, tỏi và gia vị theo công thức riêng — cay nồng, ngọt hậu, không thể thiếu. Và khi xiên nướng gặp xôi dẻo, đó là sự kết hợp hoàn hảo nhất của ẩm thực đường phố Việt Nam." data-en="Vietnamese chilli sauce is the soul of every skewer. Crafted from fresh chillies, garlic and spices to a house recipe — bold heat with a sweet finish, simply essential. And when grilled skewers meet sticky rice, that is the most perfect pairing Vietnamese street food has to offer.">
+        Sốt ớt Việt Nam là linh hồn của mỗi que xiên. Pha chế từ ớt tươi, tỏi và gia vị theo công thức riêng — cay nồng, ngọt hậu, không thể thiếu. Và khi xiên nướng gặp xôi dẻo, đó là sự kết hợp hoàn hảo nhất của ẩm thực đường phố Việt Nam.
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s;">
+      <div class="story-card">
+        <span class="big">🔥</span>
+        <p data-vi='"Thịt tươi mỗi ngày. Than hoa thật. Sốt ớt gia truyền. Ba thứ đơn giản ấy tạo nên Lách Tách!"' data-en='"Fresh meat daily. Real charcoal. House chilli sauce. Three simple things that make Lách Tách!"'>
+          "Thịt tươi mỗi ngày. Than hoa thật. Sốt ớt gia truyền. Ba thứ đơn giản ấy tạo nên Lách Tách!"
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKEWERS -->
+<section id="skewers" class="menu-sec">
+  <span class="float-icon r">🍢</span>
+  <div class="reveal">
+    <p class="section-label" data-vi="Món Chính" data-en="Main Dish">Món Chính</p>
+    <h2 class="section-title" data-vi="Xiên Nướng Heo 🍢" data-en="Grilled Pork Skewers 🍢">Xiên Nướng Heo 🍢</h2>
+    <div class="section-bar"></div>
+    <p class="section-desc" data-vi="Thịt heo tươi tẩm ướp gia vị đặc trưng, nướng trên bếp than hoa cho đến khi cháy xém vàng hoàn hảo. Xuất xứ từ ẩm thực đường phố Hà Nội — nơi xiên nướng là linh hồn của mỗi buổi chiều." data-en="Fresh pork marinated in signature spices, grilled over charcoal until perfectly golden and caramelised. Rooted in Hanoi's street-food culture — where skewers are the soul of every evening.">
+      Thịt heo tươi tẩm ướp gia vị đặc trưng, nướng trên bếp than hoa cho đến khi cháy xém vàng hoàn hảo. Xuất xứ từ ẩm thực đường phố Hà Nội — nơi xiên nướng là linh hồn của mỗi buổi chiều.
+    </p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop');">
+        <span class="tag" data-vi="Bán Chạy" data-en="Best Seller">Bán Chạy</span>
+      </div>
+      <div class="menu-card-body">
+        <h3 data-vi="Xiên Nướng" data-en="Grilled Skewer">Xiên Nướng</h3>
+        <p data-vi="Que xiên thịt heo nướng than hoa, thơm lừng đậm vị — ăn kèm sốt ớt và xôi." data-en="Charcoal-grilled pork skewer, smoky and richly flavoured — served with chilli sauce and sticky rice.">Que xiên thịt heo nướng than hoa, thơm lừng đậm vị — ăn kèm sốt ớt và xôi.</p>
+        <span class="menu-card-price">22.500 ₫</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMBOS -->
+<section id="combos" class="menu-sec alt">
+  <span class="float-icon l">🎉</span>
+  <div class="reveal">
+    <p class="section-label" data-vi="Combo Tiết Kiệm" data-en="Value Combos">Combo Tiết Kiệm</p>
+    <h2 class="section-title" data-vi="Chọn Combo Của Bạn 🎉" data-en="Pick Your Combo 🎉">Chọn Combo Của Bạn 🎉</h2>
+    <div class="section-bar"></div>
+    <p class="section-desc" data-vi="Một mình hay cả nhóm? Chúng tôi có combo cho mọi dịp — từ bữa ăn một mình đến tiệc tối cùng bạn bè." data-en="Solo or with friends? We have a combo for every occasion — from a quiet meal alone to a party with your crew.">
+      Một mình hay cả nhóm? Chúng tôi có combo cho mọi dịp — từ bữa ăn một mình đến tiệc tối cùng bạn bè.
+    </p>
+  </div>
+  <div class="combo-grid">
+    <div class="combo-card">
+      <div class="combo-icon">🧍</div>
+      <h3>Combo Lonely</h3>
+      <p data-vi="5 xiên nướng" data-en="5 grilled skewers">5 xiên nướng</p>
+      <div class="combo-price">112.500 ₫</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-icon">👫</div>
+      <h3>Combo Couple</h3>
+      <p data-vi="10 xiên nướng" data-en="10 grilled skewers">10 xiên nướng</p>
+      <div class="combo-price">225.000 ₫</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-icon">👥</div>
+      <h3>Combo Friendzone</h3>
+      <p data-vi="15 xiên nướng" data-en="15 grilled skewers">15 xiên nướng</p>
+      <div class="combo-price">337.500 ₫</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-icon">🎊</div>
+      <h3>Combo Party</h3>
+      <p data-vi="20 xiên nướng" data-en="20 grilled skewers">20 xiên nướng</p>
+      <div class="combo-price">450.000 ₫</div>
+    </div>
+  </div>
+</section>
+
+<!-- BANH MI -->
+<section id="banhmi" class="menu-sec">
+  <span class="float-icon r">🥖</span>
+  <div class="reveal">
+    <p class="section-label" data-vi="Bánh Mì" data-en="Bánh Mì">Bánh Mì</p>
+    <h2 class="section-title" data-vi="Bánh Mì Thịt Nướng 🥖" data-en="Grilled Skewer Bánh Mì 🥖">Bánh Mì Thịt Nướng 🥖</h2>
+    <div class="section-bar"></div>
+    <p class="section-desc" data-vi="Ổ bánh mì giòn rụm kẹp xiên nướng thơm lừng — sự kết hợp giữa truyền thống Sài Gòn và hương vị Hà Nội. Tiện lợi, no bụng, đầy đủ hương vị." data-en="Crispy baguette stuffed with smoky grilled skewers — a fusion of Saigon tradition and Hanoi flavour. Convenient, filling, complete in every bite.">
+      Ổ bánh mì giòn rụm kẹp xiên nướng thơm lừng — sự kết hợp giữa truyền thống Sài Gòn và hương vị Hà Nội. Tiện lợi, no bụng, đầy đủ hương vị.
+    </p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1600688640154-9619e002df30?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Bánh Mì 1 Xiên" data-en="1-Skewer Bánh Mì">Bánh Mì 1 Xiên</h3>
+        <p data-vi="Một ổ bánh mì kẹp 1 xiên thịt nướng, rau sống và sốt ớt." data-en="One baguette with 1 grilled skewer, fresh herbs and chilli sauce.">Một ổ bánh mì kẹp 1 xiên thịt nướng, rau sống và sốt ớt.</p>
+        <span class="menu-card-price">29.900 ₫</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Bánh Mì 2 Xiên" data-en="2-Skewer Bánh Mì">Bánh Mì 2 Xiên</h3>
+        <p data-vi="Ổ bánh mì đầy đặn kẹp 2 xiên thịt nướng — dành cho ai đói thật sự." data-en="A hearty baguette loaded with 2 grilled skewers — for those who are truly hungry.">Ổ bánh mì đầy đặn kẹp 2 xiên thịt nướng — dành cho ai đói thật sự.</p>
+        <span class="menu-card-price">49.990 ₫</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUE DUMPLINGS -->
+<section id="hue" class="menu-sec alt2">
+  <span class="float-icon l">🥟</span>
+  <div class="reveal">
+    <p class="section-label" data-vi="Đặc Sản Miền Trung" data-en="Central Vietnam Specialty">Đặc Sản Miền Trung</p>
+    <h2 class="section-title" data-vi="Bánh Bột Lọc Huế 🥟" data-en="Huế Tapioca Dumplings 🥟">Bánh Bột Lọc Huế 🥟</h2>
+    <div class="section-bar"></div>
+    <p class="section-desc" data-vi="Bánh bột lọc — đặc sản cố đô Huế. Lớp vỏ trong suốt dai mềm bọc nhân tôm thịt đậm đà, chấm nước mắm chua ngọt. Một hương vị miền Trung không thể lẫn vào đâu." data-en="Bánh bột lọc — a speciality of the ancient capital Huế. Translucent, chewy tapioca skin wrapping savoury shrimp and pork filling, dipped in sweet fish sauce. An unmistakable Central Vietnamese flavour.">
+      Bánh bột lọc — đặc sản cố đô Huế. Lớp vỏ trong suốt dai mềm bọc nhân tôm thịt đậm đà, chấm nước mắm chua ngọt. Một hương vị miền Trung không thể lẫn vào đâu.
+    </p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1617692855027-33b14f061079?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Bánh Bột Lọc" data-en="Steamed Tapioca Dumplings">Bánh Bột Lọc</h3>
+        <p data-vi="Bánh bột lọc hấp truyền thống, nhân tôm thịt, chấm nước mắm Huế." data-en="Traditional steamed tapioca dumplings, shrimp & pork filling, served with Huế fish sauce.">Bánh bột lọc hấp truyền thống, nhân tôm thịt, chấm nước mắm Huế.</p>
+        <span class="menu-card-price">25.000 ₫</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Bánh Bột Lọc Chiên" data-en="Fried Tapioca Dumplings">Bánh Bột Lọc Chiên</h3>
+        <p data-vi="Phiên bản chiên giòn — vỏ giòn rụm, nhân đậm đà, ăn kèm tương ớt." data-en="The crispy version — golden fried shell, savoury filling, served with chilli sauce.">Phiên bản chiên giòn — vỏ giòn rụm, nhân đậm đà, ăn kèm tương ớt.</p>
+        <span class="menu-card-price">32.000 ₫</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDES -->
+<section id="sides" class="menu-sec alt3">
+  <span class="float-icon r">🍚</span>
+  <div class="reveal">
+    <p class="section-label" data-vi="Đồ Ăn Kèm" data-en="Sides & Extras">Đồ Ăn Kèm</p>
+    <h2 class="section-title" data-vi="Ăn Kèm & Thêm 🍚" data-en="Sides & Extras 🍚">Ăn Kèm & Thêm 🍚</h2>
+    <div class="section-bar"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1536304993881-460cf19aab25?w=600&h=400&fit=crop');">
+        <span class="tag" data-vi="Đặc Biệt" data-en="Special">Đặc Biệt</span>
+      </div>
+      <div class="menu-card-body">
+        <h3 data-vi="Xôi Hom Mali Thái" data-en="Thai Hom Mali Sticky Rice">Xôi Hom Mali Thái</h3>
+        <p data-vi="Xôi nếp Thái thơm dẻo, nấu từng mẻ nhỏ — bạn đồng hành hoàn hảo của xiên nướng." data-en="Fragrant Thai sticky rice cooked in small batches — the perfect companion to grilled skewers.">Xôi nếp Thái thơm dẻo, nấu từng mẻ nhỏ — bạn đồng hành hoàn hảo của xiên nướng.</p>
+        <span class="menu-card-price">28.000 ₫</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1548811579-017cf917e0da?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Nem Rán (Chả Giò) — 3 cuốn" data-en="Spring Rolls (Chả Giò) — 3 pcs">Nem Rán (Chả Giò) — 3 cuốn</h3>
+        <p data-vi="Nem rán giòn rụm nhân thịt — món ăn kèm kinh điển của Hà Nội." data-en="Crispy fried spring rolls with pork filling — a classic Hanoi side dish.">Nem rán giòn rụm nhân thịt — món ăn kèm kinh điển của Hà Nội.</p>
+        <span class="menu-card-price">33.000 ₫</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img" style="background-image:url('https://images.unsplash.com/photo-1569058242567-93de6f36f8e6?w=600&h=400&fit=crop');"></div>
+      <div class="menu-card-body">
+        <h3 data-vi="Nem Rán (Chả Giò) — 5 cuốn" data-en="Spring Rolls (Chả Giò) — 5 pcs">Nem Rán (Chả Giò) — 5 cuốn</h3>
+        <p data-vi="Phần lớn hơn cho ai thích nhiều hơn — giòn tan, thơm lừng." data-en="A bigger portion for those who want more — shatteringly crispy and fragrant.">Phần lớn hơn cho ai thích nhiều hơn — giòn tan, thơm lừng.</p>
+        <span class="menu-card-price">55.000 ₫</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order">
+  <div class="reveal">
+    <p class="section-label" data-vi="Đặt Hàng Ngay" data-en="Order Now">Đặt Hàng Ngay</p>
+    <h2 class="section-title" data-vi="Đói rồi? Chúng tôi đây." data-en="Hungry? We're here.">Đói rồi? Chúng tôi đây.</h2>
+    <div class="section-bar" style="margin:0 auto 1.5rem;"></div>
+    <p class="order-desc" data-vi="Đặt qua GrabFood để nhận tận cửa, hoặc liên hệ Zalo để đặt combo và tư vấn riêng." data-en="Order via GrabFood for delivery, or reach us on Zalo for custom combos and personal service.">
+      Đặt qua GrabFood để nhận tận cửa, hoặc liên hệ Zalo để đặt combo và tư vấn riêng.
+    </p>
+    <div class="order-buttons">
+      <a href="https://r.grab.com/o/bYjiyi2e" target="_blank" class="order-btn grab">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 12h-3v4M9 12h3V8"/></svg>
+        <span data-vi="Đặt trên GrabFood" data-en="Order on GrabFood">Đặt trên GrabFood</span>
+      </a>
+      <a href="https://zalo.me/0868973581" target="_blank" class="order-btn zalo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span data-vi="Zalo: 0868 973 581" data-en="Zalo: 0868 973 581">Zalo: 0868 973 581</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p data-vi="© 2026 Lách Tách! — Xiên nướng Việt Nam 🔥 Hà Nội" data-en="© 2026 Lách Tách! — Vietnamese Skewers 🔥 Hanoi">
+    © 2026 <span>Lách Tách!</span> — Xiên nướng Việt Nam 🔥 Hà Nội
+  </p>
+</footer>
 
 </main>
 
 <script>
-// ── LANGUAGE SWITCHER ────────────────────────────
-let currentLang = 'vi';
+// Menu toggle
+function toggleMenu(){
+  document.getElementById('slideMenu').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
 
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-
-  // Update all translated elements
-  document.querySelectorAll('[data-vi]').forEach(el => {
-    if (lang === 'vi') {
-      el.innerHTML = el.getAttribute('data-vi');
-    } else {
-      el.innerHTML = el.getAttribute('data-en');
-    }
+// Language
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-vi]').forEach(el=>{
+    el.innerHTML=el.getAttribute(lang==='vi'?'data-vi':'data-en');
   });
-
-  // Update button states
-  document.querySelectorAll('.lang-btn').forEach(btn => {
+  document.querySelectorAll('.topbar-lang button').forEach(btn=>{
     btn.classList.remove('active');
-    if ((lang === 'vi' && btn.textContent.includes('VI')) ||
-        (lang === 'en' && btn.textContent.includes('EN'))) {
+    if((lang==='vi'&&btn.textContent.includes('VI'))||(lang==='en'&&btn.textContent.includes('EN')))
       btn.classList.add('active');
-    }
   });
 }
 
-// ── SCROLL REVEAL ────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});
+},{threshold:0.08});
+document.querySelectorAll('.reveal,.menu-card,.combo-card').forEach(el=>obs.observe(el));
 
-document.querySelectorAll('.reveal, .menu-card').forEach(el => {
-  observer.observe(el);
-});
-
-// ── ACTIVE NAV ───────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.sidebar nav a');
-
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(s => navObserver.observe(s));
-
-// ── PARALLAX FLOAT ELEMENTS ──────────────────────
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  document.querySelectorAll('.float-element').forEach((el, i) => {
-    const speed = 0.05 + (i * 0.02);
-    el.style.transform = `translateY(${scrollY * speed}px)`;
+// Parallax
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.querySelectorAll('.float-icon').forEach((el,i)=>{
+    el.style.transform=`translateY(${y*(0.04+i*0.015)}px)`;
   });
 });
 </script>
