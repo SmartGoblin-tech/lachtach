@@ -192,7 +192,7 @@ section { padding:5rem 2rem; }
 .menu-card {
   background:#fff; border-radius:6px; overflow:hidden;
   box-shadow:0 2px 15px rgba(92,45,10,0.06);
-  transition:transform 0.3s,box-shadow 0.3s;
+  transition:transform 0.3s,box-shadow 0.3s,opacity 0.3s;
   opacity:0; transform:translateY(25px);
 }
 .menu-card.visible { opacity:1; transform:translateY(0); transition:opacity 0.5s,transform 0.5s,box-shadow 0.3s; }
@@ -256,7 +256,7 @@ section { padding:5rem 2rem; }
   box-shadow:0 2px 12px rgba(92,45,10,0.06);
   text-align:center; border:1px solid rgba(232,99,26,0.1);
   opacity:0; transform:translateY(20px);
-  transition:opacity 0.5s,transform 0.5s;
+  transition:opacity 0.5s,transform 0.5s,box-shadow 0.3s;
 }
 .combo-card.visible { opacity:1; transform:translateY(0); }
 .combo-card .combo-icon { font-size:2rem; margin-bottom:0.5rem; }
@@ -369,7 +369,7 @@ footer span { color:var(--gold); }
     </div>
     <div class="reveal" style="transition-delay:0.15s;">
       <div class="story-card">
-        <span class="big">🔥</span>
+        <img src="img/skewer-fire.jpg" alt="Xiên nướng trên than hoa Lách Tách!" style="width:100%; border-radius:6px; margin-bottom:1rem; border:2px solid rgba(255,255,255,0.15); box-shadow:0 5px 25px rgba(0,0,0,0.3);">
         <p data-vi='"Thịt tươi mỗi ngày. Than hoa thật. Sốt ớt gia truyền. Ba thứ đơn giản ấy tạo nên Lách Tách!"' data-en='"Fresh meat daily. Real charcoal. House chilli sauce. Three simple things that make Lách Tách!"'>
           "Thịt tươi mỗi ngày. Than hoa thật. Sốt ớt gia truyền. Ba thứ đơn giản ấy tạo nên Lách Tách!"
         </p>
@@ -418,27 +418,27 @@ footer span { color:var(--gold); }
   </div>
   <div class="combo-grid">
     <div class="combo-card">
-      <div class="combo-icon">🧍</div>
+      <div class="combo-icon"><img src="img/skewer.jpg" alt="5 xiên nướng" style="width:60px; height:60px; border-radius:8px; object-fit:cover;"></div>
       <h3>Combo Lonely</h3>
       <p data-vi="5 xiên nướng" data-en="5 grilled skewers">5 xiên nướng</p>
       <div class="combo-price">112.500 ₫</div>
     </div>
     <div class="combo-card">
-      <div class="combo-icon">👫</div>
+      <div class="combo-icon"><img src="img/skewer.jpg" alt="10 xiên nướng" style="width:60px; height:60px; border-radius:8px; object-fit:cover;"></div>
       <h3>Combo Couple</h3>
       <p data-vi="10 xiên nướng" data-en="10 grilled skewers">10 xiên nướng</p>
       <div class="combo-price">225.000 ₫</div>
     </div>
     <div class="combo-card">
-      <div class="combo-icon">👥</div>
+      <div class="combo-icon"><img src="img/skewer-hero.jpg" alt="15 xiên nướng" style="width:60px; height:60px; border-radius:8px; object-fit:cover;"></div>
       <h3>Combo Friendzone</h3>
       <p data-vi="15 xiên nướng" data-en="15 grilled skewers">15 xiên nướng</p>
       <div class="combo-price">337.500 ₫</div>
     </div>
     <div class="combo-card">
-      <div class="combo-icon">🎊</div>
+      <div class="combo-icon"><img src="img/grill-smoke.jpg" alt="20 xiên nướng" style="width:60px; height:60px; border-radius:8px; object-fit:cover;"></div>
       <h3>Combo Party</h3>
-      <p data-vi="20 xiên nướng" data-en="20 grilled skewers">20 xiên nướng</p>
+      <p data-vis="20 xiên nướng" data-en="20 grilled skewers">20 xiên nướng</p>
       <div class="combo-price">450.000 ₫</div>
     </div>
   </div>
@@ -458,7 +458,7 @@ footer span { color:var(--gold); }
   </div>
   <div class="menu-grid">
     <div class="menu-card">
-      <div class="menu-card-img" style="background-image:url('img/banhmi-grill.jpg');"></div>
+      <div class="menu-card-img" style="background-image:url('img/banhmi-skewer.jpg');"></div>
       <div class="menu-card-body">
         <h3 data-vi="Bánh Mì 1 Xiên" data-en="1-Skewer Bánh Mì">Bánh Mì 1 Xiên</h3>
         <p data-vi="Một ổ bánh mì kẹp 1 xiên thịt nướng, rau sống và sốt ớt." data-en="One baguette with 1 grilled skewer, fresh herbs and chilli sauce.">Một ổ bánh mì kẹp 1 xiên thịt nướng, rau sống và sốt ớt.</p>
