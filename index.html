@@ -215,12 +215,13 @@ section { padding:5rem 2rem; }
 .menu-card-price { font-size:1.05rem; font-weight:800; color:var(--orange); }
 
 /* Floating parallax icons */
-.float-icon {
+/* .float-icon {
   position:absolute; opacity:0.05; font-size:12rem;
   pointer-events:none; user-select:none;
 }
 .float-icon.r { right:-2rem; top:40%; }
 .float-icon.l { left:-2rem; top:30%; }
+*/
 
 /* Parallax food illustrations */
 .parallax-img {
@@ -232,7 +233,7 @@ section { padding:5rem 2rem; }
   transform:translateY(-50%);
   border:4px solid rgba(255,255,255,0.15);
 }
-.parallax-img.left { right:auto; left:3rem; }
+/* .parallax-img.left { right:auto; left:3rem; } */
 .parallax-img.round { border-radius:50%; width:280px; height:280px; }
 .parallax-img.tilt-r { transform:translateY(-50%) rotate(3deg); }
 .parallax-img.tilt-l { transform:translateY(-50%) rotate(-3deg); }
@@ -380,7 +381,6 @@ footer span { color:var(--gold); }
 
 <!-- SKEWERS -->
 <section id="skewers" class="menu-sec">
-  <span class="float-icon r">🍢</span>
   <img class="parallax-img tilt-r" data-speed="0.04" src="img/skewer-hand.jpg" alt="Xiên nướng Lách Tách!">
   <div class="reveal">
     <p class="section-label" data-vi="Món Chính" data-en="Main Dish">Món Chính</p>
@@ -406,8 +406,7 @@ footer span { color:var(--gold); }
 
 <!-- COMBOS -->
 <section id="combos" class="menu-sec alt">
-  <span class="float-icon l">🎉</span>
-  <img class="parallax-img left round" data-speed="0.03" src="img/grill-smoke.jpg" alt="Xiên nướng trên bếp than Lách Tách!">
+  <img class="parallax-img" data-speed="0.03" src="img/grill-smoke.jpg" alt="Xiên nướng trên bếp than Lách Tách!">
   <div class="reveal">
     <p class="section-label" data-vi="Combo Tiết Kiệm" data-en="Value Combos">Combo Tiết Kiệm</p>
     <h2 class="section-title" data-vi="Chọn Combo Của Bạn 🎉" data-en="Pick Your Combo 🎉">Chọn Combo Của Bạn 🎉</h2>
@@ -446,7 +445,6 @@ footer span { color:var(--gold); }
 
 <!-- BANH MI -->
 <section id="banhmi" class="menu-sec">
-  <span class="float-icon r">🥖</span>
   <img class="parallax-img tilt-l" data-speed="0.05" src="img/banhmi-hero.jpg" alt="Bánh mì xiên nướng Lách Tách!">
   <div class="reveal">
     <p class="section-label" data-vi="Bánh Mì" data-en="Bánh Mì">Bánh Mì</p>
@@ -478,8 +476,7 @@ footer span { color:var(--gold); }
 
 <!-- HUE DUMPLINGS -->
 <section id="hue" class="menu-sec alt2">
-  <span class="float-icon l">🥟</span>
-  <img class="parallax-img left tilt-r" data-speed="0.035" src="img/botloc-hap.jpg" alt="Bánh bột lọc Huế">
+  <img class="parallax-img tilt-r" data-speed="0.035" src="img/botloc-hap.jpg" alt="bánh bột lọc hấp Lách Tách!">
   <div class="reveal">
     <p class="section-label" data-vi="Đặc Sản Miền Trung" data-en="Central Vietnam Specialty">Đặc Sản Miền Trung</p>
     <h2 class="section-title" data-vi="Bánh Bột Lọc Huế 🥟" data-en="Huế Tapioca Dumplings 🥟">Bánh Bột Lọc Huế 🥟</h2>
@@ -510,7 +507,6 @@ footer span { color:var(--gold); }
 
 <!-- SIDES -->
 <section id="sides" class="menu-sec alt3">
-  <span class="float-icon r">🍚</span>
   <img class="parallax-img round" data-speed="0.045" src="img/nemran-plated.jpg" alt="Nem rán Lách Tách!">
   <div class="reveal">
     <p class="section-label" data-vi="Đồ Ăn Kèm" data-en="Sides & Extras">Đồ Ăn Kèm</p>
@@ -607,9 +603,6 @@ document.querySelectorAll('.reveal,.menu-card,.combo-card').forEach(el=>obs.obse
 // Parallax - icons & food images
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
-  document.querySelectorAll('.float-icon').forEach((el,i)=>{
-    el.style.transform=`translateY(${y*(0.04+i*0.015)}px)`;
-  });
   // Food illustration parallax
   document.querySelectorAll('.parallax-img').forEach(img=>{
     const rect=img.parentElement.getBoundingClientRect();
