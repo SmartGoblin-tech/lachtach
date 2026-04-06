@@ -300,12 +300,12 @@ footer span { color:var(--gold); }
 
 /* ── MOBILE ──────────────────────────── */
 @media(max-width:768px) {
-  .story-grid { grid-template-columns:1fr; gap:2rem; }
-  .menu-grid { grid-template-columns:1fr; }
-  .combo-grid { grid-template-columns:1fr 1fr; }
+  .story-grid { grid-template-columns:1fr; gap:2rem; text-align:center; }
+  .menu-grid { grid-template-columns:1fr; justify-content:center; }
+  .combo-grid { grid-template-columns:1fr 1fr; justify-content:center; }
 }
 @media(max-width:480px) {
-  .combo-grid { grid-template-columns:1fr; }
+  .combo-grid { grid-template-columns:1fr; justify-content:center; }
 }
 </style>
 </head>
@@ -406,7 +406,7 @@ footer span { color:var(--gold); }
 
 <!-- COMBOS -->
 <section id="combos" class="menu-sec alt">
-  <img class="parallax-img" data-speed="0.03" src="img/grill-smoke.jpg" alt="Xiên nướng trên bếp than Lách Tách!">
+  <!-- <img class="parallax-img" data-speed="0.03" src="img/grill-smoke.jpg" alt="Xiên nướng trên bếp than Lách Tách!"> -->
   <div class="reveal">
     <p class="section-label" data-vi="Combo Tiết Kiệm" data-en="Value Combos">Combo Tiết Kiệm</p>
     <h2 class="section-title" data-vi="Chọn Combo Của Bạn 🎉" data-en="Pick Your Combo 🎉">Chọn Combo Của Bạn 🎉</h2>
