@@ -20,7 +20,7 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:'Be Vietnam Pro',sans-serif; background:var(--warm); color:var(--dark); overflow-x:hidden; }
+body { font-family:'Be Vietnam Pro',sans-serif; background:var(--warm); color:var(--dark); overflow-x:hidden; margin:0; }
 
 /* ── TOPBAR ──────────────────────────── */
 .topbar {
@@ -179,7 +179,7 @@ section { padding:5rem 2rem; }
 .story-card p { font-size:0.9rem; opacity:0.85; line-height:1.7; font-style:italic; }
 
 /* ── MENU ────────────────────────────── */
-.menu-sec { position:relative; overflow:hidden; }
+.menu-sec { position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; width:100%; box-sizing:border-box; }
 .menu-sec.alt { background:var(--cream); }
 .menu-sec.alt2 { background:linear-gradient(135deg,#FFF0E0,#FFE8CC); }
 .menu-sec.alt3 { background:#FEF6E8; }
